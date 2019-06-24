@@ -1,17 +1,25 @@
 package com.blackbeard.teach;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class WeatherTower extends Tower
 {
+    /**
+     * This will request the current weather
+     * @param coordinates
+     * @return
+     */
     public String getWeather(Coordinates coordinates)
     {
-        //Todo add proper implementation
-        String weather = "Snow";
-        return weather;
+        return WeatherProvider.getProvider().getCurrentWeather(coordinates);
     }
 
+    /**
+     * This notifies the weather tower that the weather conditions have changed
+     */
     void changeWeather()
     {
-
+        this.conditionsChanged();
     }
 
 }
