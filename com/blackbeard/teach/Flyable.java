@@ -1,7 +1,12 @@
 package com.blackbeard.teach;
 
 public interface Flyable {
-    public void updateConditions();
-    public void registerTower(WeatherTower weatherTower);
+
+    /**
+     * Interface methods that will be implemented by classes
+     *
+     */
+    void updateConditions();
+    void registerTower(WeatherTower weatherTower);
 
 }

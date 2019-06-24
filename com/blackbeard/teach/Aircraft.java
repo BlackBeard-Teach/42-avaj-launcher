@@ -7,7 +7,7 @@ public class Aircraft {
     private static long idCounter;
 
     //Default constructor
-    public Aircraft() {}
+    //public Aircraft() {}
     protected Aircraft (String name, Coordinates coordinates)
     {
         this.name = name;
@@ -15,8 +15,20 @@ public class Aircraft {
         id = nextId();
     }
 
+    /**
+     * This generates a unique ID that will be assigned to the flight
+     * @return
+     */
     private long nextId()
     {
         return idCounter++;
     }
+
+//    public void getWeatherConditions(String weather)
+//    {
+//        if (weather.equals("SUN"))
+//        {
+//            this.coordinates = new Coordinates()
+//        }
+//    }
 }

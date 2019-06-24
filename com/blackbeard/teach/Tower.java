@@ -3,7 +3,6 @@ package com.blackbeard.teach;
 import java.util.ArrayList;
 
 public class Tower {
-//    Flyable[] observers; better to use array list
     private ArrayList<Flyable> observers = new ArrayList<>();
 
     public void register(Flyable flyable)

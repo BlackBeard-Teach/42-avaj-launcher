@@ -9,7 +9,6 @@ public class JetPlane extends Aircraft implements Flyable {
      * @param coordinates
      */
     JetPlane(String name, Coordinates coordinates){
-        //Flyable jet = new JetPlane(name, coordinates); incorrect
         super(name, coordinates);
     }
 
@@ -22,28 +21,37 @@ public class JetPlane extends Aircraft implements Flyable {
 
     public void updateConditions()
     {
-        weatherTower.getWeather(coordinates);
-//        this.weatherTower.changeWeather();
-//        this.weatherTower.conditionsChanged();
+        if (weatherTower.getWeather(coordinates).equals("SUN"))
+        {
+            this.coordinates = new Coordinates(coordinates.getLongitude() + 10, coordinates.getLatitude(), coordinates.getHeight() + 2);
+            //Log msg here
+        }
+        if (weatherTower.getWeather(coordinates).equals("RAIN"))
+        {
+            this.coordinates = new Coordinates(coordinates.getLongitude() + 5, coordinates.getLatitude(), coordinates.getHeight());
+            //Log msg here
+        }
+        if (weatherTower.getWeather(coordinates).equals("FOG"))
+        {
+            this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 1, coordinates.getHeight());
+
+        }
+        if (weatherTower.getWeather(coordinates).equals("SNOW"))
+        {
+            this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 7);
+        }
+
         //need to log the msg
         if (coordinates.getHeight() == 0)
         {
             weatherTower.unregister(this);
         }
+
     }
 
     public void registerTower(WeatherTower weatherTower)
     {
-//        Flyable jet = new JetPlane(name, coordinates);
-//        if (coordinates.getHeight() > 0)
-//        {
-//            weatherTower.register(jet);
-//        }
-//        else if (coordinates.getHeight() == 0)
-//        {
-//            weatherTower.unregister(jet);
-//        }
-        //Need to log the message
+        //Need to log msg
         this.weatherTower = weatherTower;
         weatherTower.register(this);
     }
