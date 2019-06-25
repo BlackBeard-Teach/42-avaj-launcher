@@ -12,8 +12,12 @@ public class AircraftFactory {
      */
     public Flyable newAircraft(String type, String name, int longitude, int latitude, int height)
     {
+        if (longitude < 0 || latitude < 0 )
+        {
+            throw new IllegalArgumentException("Wrong Aircraft parameters");
+        }
         Flyable newOne = null;
-        //possible switch statement implementation.
+        //possible switch statement implementation. DRY
         if (type.equals("Baloon")){
            newOne = new Baloon(name, new Coordinates(longitude, latitude, height));
         }
@@ -27,7 +31,9 @@ public class AircraftFactory {
         }
         else
         {
-            System.out.println("Invalid Aircraft type: Allowed types: Helicopter, JetPlane, Balloon");
+            //System.out.println("Invalid Aircraft type: Allowed types: Helicopter, JetPlane, Balloon");
+            // Maybe will add my own exception who knows
+            throw new IllegalArgumentException("Aircraft type does not exist");
         }
         return newOne;
     }
