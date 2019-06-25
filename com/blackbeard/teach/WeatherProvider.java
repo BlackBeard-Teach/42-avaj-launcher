@@ -13,12 +13,11 @@ public class WeatherProvider {
 
     /**
      * Create object only when weatherProvider is none, so only one
-     * object can be created
-     * @return
+     * object instance can be created
+     * @return - Weather Provider
      */
     public static WeatherProvider getProvider()
     {
-        //Possible implementation change
         if (weatherProvider == null)
         {
             weatherProvider = new WeatherProvider();

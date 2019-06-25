@@ -3,7 +3,7 @@ package com.blackbeard.teach;
 public class AircraftFactory {
     /**
      * Aircraft Factory creates an aircraft instance based on what is passed to it.
-     * @param type
+     * @param type -
      * @param name
      * @param longitude
      * @param latitude
@@ -16,8 +16,7 @@ public class AircraftFactory {
         {
             throw new IllegalArgumentException("Wrong Aircraft parameters");
         }
-        Flyable newOne = null;
-        //possible switch statement implementation. DRY
+        Flyable newOne;
         if (type.equals("Baloon")){
            newOne = new Baloon(name, new Coordinates(longitude, latitude, height));
         }
@@ -31,8 +30,6 @@ public class AircraftFactory {
         }
         else
         {
-            //System.out.println("Invalid Aircraft type: Allowed types: Helicopter, JetPlane, Balloon");
-            // Maybe will add my own exception who knows
             throw new IllegalArgumentException("Aircraft type does not exist");
         }
         return newOne;

@@ -1,12 +1,12 @@
 package com.blackbeard.teach;
 
 public class JetPlane extends Aircraft implements Flyable {
-    WeatherTower weatherTower;
+    private WeatherTower weatherTower;
 
     /**
      * JetPlane constructor with aurguments from the base class Aircraft
-     * @param name
-     * @param coordinates
+     * @param name -
+     * @param coordinates -
      */
     JetPlane(String name, Coordinates coordinates){
         super(name, coordinates);
@@ -23,28 +23,29 @@ public class JetPlane extends Aircraft implements Flyable {
     {
         if (weatherTower.getWeather(coordinates).equals("SUN"))
         {
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, "This is some nice weather we are having. Nice clear blue skies"));
             this.coordinates = new Coordinates(coordinates.getLongitude() + 10, coordinates.getLatitude(), coordinates.getHeight() + 2);
-            //Log msg here
         }
         if (weatherTower.getWeather(coordinates).equals("RAIN"))
         {
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, "Captain Teach here! This weather is taking a turn for the worst!"));
             this.coordinates = new Coordinates(coordinates.getLongitude() + 5, coordinates.getLatitude(), coordinates.getHeight());
-            //Log msg here
         }
         if (weatherTower.getWeather(coordinates).equals("FOG"))
         {
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, "JetPlane to WeatherTower, we can't see a thing over here!"));
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 1, coordinates.getHeight());
 
         }
         if (weatherTower.getWeather(coordinates).equals("SNOW"))
         {
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, "Command, JetPlane Captain Teach! Reporting sightings of whiteWalkers on the wings"));
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 7);
         }
 
-        //need to log the msg
         if (coordinates.getHeight() <= 0)
         {
-            LogMessage.addString(LogMessage.formatStringJetPlane(this, "is crash landing brace yourself!"));
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, "is crash landing brace yourself! MAYDAY!MAYDAY!"));
             weatherTower.unregister(this);
         }
 
@@ -52,7 +53,7 @@ public class JetPlane extends Aircraft implements Flyable {
 
     public void registerTower(WeatherTower weatherTower)
     {
-        //Need to log msg
+        LogMessage.addString(LogMessage.formatStringTowerJetPlane(this, "registered to weather."));
         this.weatherTower = weatherTower;
         weatherTower.register(this);
     }
