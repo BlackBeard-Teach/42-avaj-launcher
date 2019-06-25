@@ -15,7 +15,7 @@ public class Coordinates {
         if (getHeight() < 0)
             height = 0;
         if (getLatitude() < 0)
-            System.out.println("For fucks sakes, Do you need an ID10T form?");
+            System.out.println("For fucks sakes, GIVE ME LEGAL COORDINATES");
         if (getLongitude() < 0)
             System.out.println("For fucks sakes, Do you need an ID10T form?");
 
