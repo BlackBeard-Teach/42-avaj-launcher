@@ -5,8 +5,8 @@ public class JetPlane extends Aircraft implements Flyable {
 
     /**
      * JetPlane constructor with aurguments from the base class Aircraft
-     * @param name -
-     * @param coordinates -
+     * @param name - Gets the name passed onto it from the super class
+     * @param coordinates - Gets coordinates from the super class(i.e Height, Latitude, Longitude)
      */
     JetPlane(String name, Coordinates coordinates){
         super(name, coordinates);
@@ -21,6 +21,7 @@ public class JetPlane extends Aircraft implements Flyable {
 
     public void updateConditions()
     {
+        //String type = this.getClass().getName().substring(35) + "#" + this.name + "(" + this.id;
         if (weatherTower.getWeather(coordinates).equals("SUN"))
         {
             LogMessage.addString(LogMessage.formatStringJetPlane(this, "This is some nice weather we are having. Nice clear blue skies"));
@@ -45,12 +46,16 @@ public class JetPlane extends Aircraft implements Flyable {
 
         if (coordinates.getHeight() <= 0)
         {
-            LogMessage.addString(LogMessage.formatStringJetPlane(this, "is crash landing brace yourself! MAYDAY!MAYDAY!"));
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, "is crash landing brace yourself! MAYDAY!MAYDAY! Unregistered from tower"));
             weatherTower.unregister(this);
         }
 
     }
 
+    /**
+     * This with register this flyable(JetPlane) to the weather tower and log the message to a log file
+     * @param weatherTower - registers this flyable(JetPlane) to the weather tower
+     */
     public void registerTower(WeatherTower weatherTower)
     {
         LogMessage.addString(LogMessage.formatStringTowerJetPlane(this, "registered to weather."));

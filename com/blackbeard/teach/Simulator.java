@@ -1,13 +1,9 @@
 package com.blackbeard.teach;
 
-import javax.imageio.IIOException;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 
 public class Simulator {
-    public static void main(String[] args) throws Exception
+    public static void main(String[] args)
     {
         WeatherTower weatherTower = new WeatherTower();
         AircraftFactory aircraftFactory = new AircraftFactory();
@@ -34,15 +30,23 @@ public class Simulator {
             for (int i = 0; i <= simulations; i++)
             {
                 weatherTower.changeWeather();
+                LogMessage.printInTxt();
             }
-            LogMessage.printInTxt();
+
             input.close();
-        } catch (IIOException | IllegalNumber | FileNotFoundException | ArrayIndexOutOfBoundsException e)
+        } catch (IllegalNumber | ArrayIndexOutOfBoundsException | IOException e)
         {
             e.printStackTrace();
         }
     }
 
+    /**
+     *
+     * @param line - the line that will be validated if its a valid number
+     * @param name - Name of the number
+     * @return - Return the number if its a valid number
+     * @throws - IllegalNumber
+     */
     private static int ValidateNumber(String line, String name) throws IllegalNumber {
         int i;
         try{

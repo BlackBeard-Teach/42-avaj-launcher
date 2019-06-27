@@ -6,8 +6,8 @@ public class WeatherTower extends Tower
 {
     /**
      * This will request the current weather
-     * @param coordinates
-     * @return
+     * @param coordinates - Gets the current weather 
+     * @return - returns the current weather.
      */
     public String getWeather(Coordinates coordinates)
     {

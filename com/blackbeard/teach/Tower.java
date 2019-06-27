@@ -15,7 +15,7 @@ public class Tower {
 
     /**
      * UnRegisters the flyable if it exists
-     * @param flyable
+     * @param flyable - Is the flyable that will be unregistered from the weather tower
      */
     public void unregister(Flyable flyable)
     {

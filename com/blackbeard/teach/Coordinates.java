@@ -8,7 +8,7 @@ public class Coordinates {
     Coordinates (int longitude, int latitude, int height)
     {
         /*Possible need for input validation is in the required range
-        Is this right??? I have no idea!! So yes it is right for now
+          Is this right??? I have no idea!! So yes it is right for now
          */
         if (height > 100)
             height = 100;

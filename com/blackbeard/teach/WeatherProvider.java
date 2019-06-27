@@ -14,7 +14,7 @@ public class WeatherProvider {
     /**
      * Create object only when weatherProvider is none, so only one
      * object instance can be created
-     * @return - Weather Provider
+     * @return - Weather Provider instance
      */
     public static WeatherProvider getProvider()
     {
@@ -28,8 +28,8 @@ public class WeatherProvider {
     /**
      * The random weather generator
      * Checks weather the height will remain in the range 0-100;
-     * @param coordinates
-     * @return
+     * @param coordinates - Are the coordinates that are passed to get the current weather
+     * @return - returns the selected weather type.
      */
 
     public String getCurrentWeather(Coordinates coordinates)

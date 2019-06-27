@@ -34,24 +34,25 @@ public class Baloon extends Aircraft implements Flyable {
         }
         if (weatherTower.getWeather(coordinates).equals("SNOW"))
         {
-            LogMessage.addString(LogMessage.formatStringBaloon(this, "Balloon going down at a rapid pace"));
+            LogMessage.addString(LogMessage.formatStringBaloon(this, "Balloon going down at a rapid pace I think I'm going to crash"));
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 15);
         }
 
         if (coordinates.getHeight() <= 0)
         {
-            LogMessage.addString(LogMessage.formatStringBaloon(this, "is crash landing brace yourself! MAYDAY!MAYDAY!"));
+            LogMessage.addString(LogMessage.formatStringBaloon(this, "Balloon has exploded and unregistered from tower"));
             weatherTower.unregister(this);
         }
 
     }
 
     /**
-     * Registers this flyable(i.e Balloon to the weatherTower
-     * @param weatherTower -
+     * Registers this flyable(i.e Balloon to the weatherTower)
+     * @param weatherTower - Registers the flyable to instance of weather tower.
      */
     public void registerTower(WeatherTower weatherTower)
     {
+        LogMessage.addString(LogMessage.formatStringTowerBaloon(this, "is registered on weather tower"));
         this.weatherTower = weatherTower;
         weatherTower.register(this);
     }
