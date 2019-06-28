@@ -5,6 +5,12 @@ public class Coordinates {
     private int latitude;
     private int height;
 
+    /**
+     * This will initialize the longitude, latitude, height based on passed parameters
+     * @param longitude - positive longitude to be initialized
+     * @param latitude - positive latitude to be initialized
+     * @param height - Height in the range of 0-100 to be initialized.
+     */
     Coordinates (int longitude, int latitude, int height)
     {
         /*Possible need for input validation is in the required range

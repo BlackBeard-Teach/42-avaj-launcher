@@ -2,7 +2,7 @@ package com.blackbeard.teach.aircrafts;
 
 public abstract class AircraftFactory {
     /**
-     * Aircraft Factory creates an aircraft instance based on what is passed to it.
+     * Aircraft Factory creates an aircraft instance based on what is passed to it and throws a custom exception if invali.
      * @param type - Type of aircraft to be created.
      * @param name - Name of aircraft to be created.
      * @param longitude - The longitude of the aircraft.

@@ -6,6 +6,11 @@ public abstract class Aircraft {
     protected Coordinates coordinates;
     private static long idCounter;
 
+    /**
+     * This constructor assigns the specific name and coordinates to the aircraft.
+     * @param name - name of aircraft(i.e name-B1)
+     * @param coordinates- aircraft coordinates(i.e coordinates-Lat:10-Long:12-Height:21)
+     */
     protected Aircraft (String name, Coordinates coordinates)
     {
         this.name = name;

@@ -47,7 +47,7 @@ public class JetPlane extends Aircraft implements Flyable {
 
         if (coordinates.getHeight() <= 0)
         {
-            LogMessage.addString(LogMessage.formatStringJetPlane(this, "is crash landing brace yourself! MAYDAY!MAYDAY! Unregistered from tower"));
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, "is crash landing brace yourself! MAYDAY!MAYDAY! Unregistered from tower"+" Longitude: " +coordinates.getLongitude()+" Latitude: " + coordinates.getLatitude() +"Height: "+ coordinates.getHeight()));
             weatherTower.unregister(this);
         }
 

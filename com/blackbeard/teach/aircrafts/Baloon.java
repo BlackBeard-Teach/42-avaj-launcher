@@ -5,6 +5,11 @@ import com.blackbeard.teach.weather.WeatherTower;
 public class Baloon extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
 
+    /**
+     * Balloon constructor that gets name and coordinates from the base class
+     * @param name - name to be assigned to the Balloon
+     * @param coordinates - Coordinates to be assigned to the Balloon
+     */
     Baloon(String name, Coordinates coordinates)
     {
         super(name, coordinates);
@@ -42,7 +47,7 @@ public class Baloon extends Aircraft implements Flyable {
 
         if (coordinates.getHeight() <= 0)
         {
-            LogMessage.addString(LogMessage.formatStringBaloon(this, "Balloon has exploded and unregistered from tower"));
+            LogMessage.addString(LogMessage.formatStringBaloon(this, "Balloon has exploded and unregistered from tower" +" Longitude: " +coordinates.getLongitude()+" Latitude: " + coordinates.getLatitude() +"Height: "+ coordinates.getHeight()));
             weatherTower.unregister(this);
         }
 
