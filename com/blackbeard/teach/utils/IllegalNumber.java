@@ -1,4 +1,4 @@
-package com.blackbeard.teach;
+package com.blackbeard.teach.utils;
 
 public class IllegalNumber extends Exception {
     /**

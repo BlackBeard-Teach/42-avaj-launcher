@@ -1,13 +1,14 @@
-package com.blackbeard.teach;
+package com.blackbeard.teach.weather;
+
+import com.blackbeard.teach.aircrafts.Flyable;
 
 import java.util.ArrayList;
 
-public class Tower {
+public abstract class Tower {
     private ArrayList<Flyable> observers = new ArrayList<>();
 
     public void register(Flyable flyable)
     {
-        //Don't know if this should be here but WTF
         if (observers.contains(flyable))
             return;
         observers.add(flyable);

@@ -1,4 +1,6 @@
-package com.blackbeard.teach;
+package com.blackbeard.teach.aircrafts;
+
+import com.blackbeard.teach.weather.WeatherTower;
 
 public interface Flyable {
 

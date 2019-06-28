@@ -1,6 +1,6 @@
-package com.blackbeard.teach;
+package com.blackbeard.teach.aircrafts;
 
-public class AircraftFactory {
+public abstract class AircraftFactory {
     /**
      * Aircraft Factory creates an aircraft instance based on what is passed to it.
      * @param type - Type of aircraft to be created.
@@ -10,7 +10,7 @@ public class AircraftFactory {
      * @param height - The height of the aircraft
      * @return - returns an instance of the aircraft if valid parameters are passed.
      */
-    public Flyable newAircraft(String type, String name, int longitude, int latitude, int height)
+    public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height)
     {
         if (longitude < 0 || latitude < 0 )
         {

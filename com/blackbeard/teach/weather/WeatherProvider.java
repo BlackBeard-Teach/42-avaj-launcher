@@ -1,4 +1,6 @@
-package com.blackbeard.teach;
+package com.blackbeard.teach.weather;
+
+import com.blackbeard.teach.aircrafts.Coordinates;
 
 public class WeatherProvider {
     private static WeatherProvider weatherProvider;

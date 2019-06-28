@@ -1,13 +1,11 @@
-package com.blackbeard.teach;
+package com.blackbeard.teach.aircrafts;
 
-public class Aircraft {
+public abstract class Aircraft {
     protected long id;
     protected String name;
     protected Coordinates coordinates;
     private static long idCounter;
 
-    //Default constructor
-    //public Aircraft() {}
     protected Aircraft (String name, Coordinates coordinates)
     {
         this.name = name;
@@ -17,18 +15,11 @@ public class Aircraft {
 
     /**
      * This generates a unique ID that will be assigned to the flight
-     * @return
+     * @return - idCounter incremented.
      */
     private long nextId()
     {
         return idCounter++;
     }
 
-//    public void getWeatherConditions(String weather)
-//    {
-//        if (weather.equals("SUN"))
-//        {
-//            this.coordinates = new Coordinates()
-//        }
-//    }
 }

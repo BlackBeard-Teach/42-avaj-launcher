@@ -1,4 +1,4 @@
-package com.blackbeard.teach;
+package com.blackbeard.teach.aircrafts;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,30 +7,30 @@ import java.util.List;
 
 public class LogMessage {
 
-    public static List<String> strings = new ArrayList<>();
+    private static List<String> strings = new ArrayList<>();
 
     public static String formatStringTowerBaloon(Baloon flyable, String message) {
-        return ("Tower says: " + flyable.getClass().getTypeName().substring(21) + "#" + flyable.name + "(" + flyable.id + ") " + message);
+        return ("Tower says: " + flyable.getClass().getTypeName().substring(31) + "#" + flyable.name + "(" + flyable.id + ") " + message);
     }
 
     public static String formatStringTowerJetPlane(JetPlane flyable, String message) {
-        return ("Tower says: " + flyable.getClass().getTypeName().substring(21) + "#" + flyable.name + "(" + flyable.id + ") " + message);
+        return ("Tower says: " + flyable.getClass().getTypeName().substring(31) + "#" + flyable.name + "(" + flyable.id + ") " + message);
     }
 
     public static String formatStringTowerHelicopter(Helicopter flyable, String message) {
-        return ("Tower says: " + flyable.getClass().getTypeName().substring(21) + "#" + flyable.name + "(" + flyable.id + ") " + message);
+        return ("Tower says: " + flyable.getClass().getTypeName().substring(31) + "#" + flyable.name + "(" + flyable.id + ") " + message);
     }
 
     public static String formatStringBaloon(Baloon flyable, String message) {
-        return (flyable.getClass().getTypeName().substring(21) + "#" + flyable.name + "(" + flyable.id + "): " + message);
+        return (flyable.getClass().getTypeName().substring(31) + "#" + flyable.name + "(" + flyable.id + "): " + message);
     }
 
     public static String formatStringJetPlane(JetPlane flyable, String message) {
-        return (flyable.getClass().getTypeName().substring(21) + "#" + flyable.name + "(" + flyable.id + "): " + message);
+        return (flyable.getClass().getTypeName().substring(31) + "#" + flyable.name + "(" + flyable.id + "): " + message);
     }
 
     public static String formatStringHelicopter(Helicopter flyable, String message) {
-        return (flyable.getClass().getTypeName().substring(21)+ "#" + flyable.name + "(" + flyable.id + "): " + message);
+        return (flyable.getClass().getTypeName().substring(31)+ "#" + flyable.name + "(" + flyable.id + "): " + message);
     }
 
     public static void addString(String newString) {

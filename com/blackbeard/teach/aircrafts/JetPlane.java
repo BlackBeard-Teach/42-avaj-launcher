@@ -1,10 +1,12 @@
-package com.blackbeard.teach;
+package com.blackbeard.teach.aircrafts;
+
+import com.blackbeard.teach.weather.WeatherTower;
 
 public class JetPlane extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
 
     /**
-     * JetPlane constructor with aurguments from the base class Aircraft
+     * JetPlane constructor with arguments from the base class Aircraft
      * @param name - Gets the name passed onto it from the super class
      * @param coordinates - Gets coordinates from the super class(i.e Height, Latitude, Longitude)
      */
@@ -21,7 +23,6 @@ public class JetPlane extends Aircraft implements Flyable {
 
     public void updateConditions()
     {
-        //String type = this.getClass().getName().substring(35) + "#" + this.name + "(" + this.id;
         if (weatherTower.getWeather(coordinates).equals("SUN"))
         {
             LogMessage.addString(LogMessage.formatStringJetPlane(this, "This is some nice weather we are having. Nice clear blue skies"));

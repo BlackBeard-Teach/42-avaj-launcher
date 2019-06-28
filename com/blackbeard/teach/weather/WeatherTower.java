@@ -1,6 +1,5 @@
-package com.blackbeard.teach;
-import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
+package com.blackbeard.teach.weather;
+import com.blackbeard.teach.aircrafts.Coordinates;
 
 public class WeatherTower extends Tower
 {

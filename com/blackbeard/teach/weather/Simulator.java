@@ -1,4 +1,9 @@
-package com.blackbeard.teach;
+package com.blackbeard.teach.weather;
+
+import com.blackbeard.teach.utils.IllegalNumber;
+import com.blackbeard.teach.aircrafts.LogMessage;
+import com.blackbeard.teach.aircrafts.AircraftFactory;
+import com.blackbeard.teach.aircrafts.Flyable;
 
 import java.io.*;
 
@@ -6,7 +11,6 @@ public class Simulator {
     public static void main(String[] args)
     {
         WeatherTower weatherTower = new WeatherTower();
-        AircraftFactory aircraftFactory = new AircraftFactory();
 
         try
         {
@@ -23,7 +27,7 @@ public class Simulator {
             while ((line = input.readLine()) != null)
             {
                 splitLine = line.split(" ");
-                flyable = aircraftFactory.newAircraft(splitLine[0], splitLine[1], ValidateNumber(splitLine[2], "Longitude"),ValidateNumber(splitLine[3], "Latitude"), ValidateNumber(splitLine[4], "Height"));
+                flyable = AircraftFactory.newAircraft(splitLine[0], splitLine[1], ValidateNumber(splitLine[2], "Longitude"),ValidateNumber(splitLine[3], "Latitude"), ValidateNumber(splitLine[4], "Height"));
                 flyable.registerTower(weatherTower);
             }
 
