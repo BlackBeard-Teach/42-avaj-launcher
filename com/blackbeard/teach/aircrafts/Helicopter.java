@@ -1,5 +1,6 @@
 package com.blackbeard.teach.aircrafts;
 
+import com.blackbeard.teach.utils.WeatherLogMsg;
 import com.blackbeard.teach.weather.WeatherTower;
 
 public class Helicopter extends Aircraft implements Flyable {
@@ -15,24 +16,26 @@ public class Helicopter extends Aircraft implements Flyable {
      */
     public void updateConditions()
     {
+        WeatherLogMsg weatherLogMsg = new WeatherLogMsg();
+
         if (weatherTower.getWeather(coordinates).equals("SUN"))
         {
-            LogMessage.addString(LogMessage.formatStringHelicopter(this, "My rotor is spinning too fast, is it normal"));
+            LogMessage.addString(LogMessage.formatStringHelicopter(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             coordinates = new Coordinates(coordinates.getLongitude() + 10, coordinates.getLatitude(), coordinates.getHeight() + 2);
         }
         if (weatherTower.getWeather(coordinates).equals("RAIN"))
         {
-            LogMessage.addString(LogMessage.formatStringHelicopter(this, "Command! Helicopter Captain. It's getting a little wet in here!"));
+            LogMessage.addString(LogMessage.formatStringHelicopter(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             coordinates = new Coordinates(coordinates.getLongitude() + 5, coordinates.getLatitude(), coordinates.getHeight());
         }
         if (weatherTower.getWeather(coordinates).equals("FOG"))
         {
-            LogMessage.addString(LogMessage.formatStringHelicopter(this, "Tower!! I can't see the helipad"));
+            LogMessage.addString(LogMessage.formatStringHelicopter(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             coordinates = new Coordinates(coordinates.getLongitude() + 1, coordinates.getLatitude(), coordinates.getHeight());
         }
         if (weatherTower.getWeather(coordinates).equals("SNOW"))
         {
-            LogMessage.addString(LogMessage.formatStringHelicopter(this, "I see smoke from my rotor, I think it froze"));
+            LogMessage.addString(LogMessage.formatStringHelicopter(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 12);
         }
         if (coordinates.getHeight() <= 0)

@@ -1,5 +1,6 @@
 package com.blackbeard.teach.aircrafts;
 
+import com.blackbeard.teach.utils.WeatherLogMsg;
 import com.blackbeard.teach.weather.WeatherTower;
 
 public class JetPlane extends Aircraft implements Flyable {
@@ -23,25 +24,26 @@ public class JetPlane extends Aircraft implements Flyable {
 
     public void updateConditions()
     {
+        WeatherLogMsg weatherLogMsg = new WeatherLogMsg();
         if (weatherTower.getWeather(coordinates).equals("SUN"))
         {
-            LogMessage.addString(LogMessage.formatStringJetPlane(this, "This is some nice weather we are having. Nice clear blue skies"));
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             this.coordinates = new Coordinates(coordinates.getLongitude() + 10, coordinates.getLatitude(), coordinates.getHeight() + 2);
         }
         if (weatherTower.getWeather(coordinates).equals("RAIN"))
         {
-            LogMessage.addString(LogMessage.formatStringJetPlane(this, "Captain Teach here! This weather is taking a turn for the worst!"));
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             this.coordinates = new Coordinates(coordinates.getLongitude() + 5, coordinates.getLatitude(), coordinates.getHeight());
         }
         if (weatherTower.getWeather(coordinates).equals("FOG"))
         {
-            LogMessage.addString(LogMessage.formatStringJetPlane(this, "JetPlane to WeatherTower, we can't see a thing over here!"));
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude() + 1, coordinates.getHeight());
 
         }
         if (weatherTower.getWeather(coordinates).equals("SNOW"))
         {
-            LogMessage.addString(LogMessage.formatStringJetPlane(this, "Command, JetPlane Captain Teach! Reporting sightings of whiteWalkers on the wings"));
+            LogMessage.addString(LogMessage.formatStringJetPlane(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 7);
         }
 

@@ -1,5 +1,7 @@
 package com.blackbeard.teach.aircrafts;
 
+import com.blackbeard.teach.utils.IllegalType;
+
 public abstract class AircraftFactory {
     /**
      * Aircraft Factory creates an aircraft instance based on what is passed to it and throws a custom exception if invali.

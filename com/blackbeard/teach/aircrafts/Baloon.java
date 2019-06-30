@@ -1,5 +1,6 @@
 package com.blackbeard.teach.aircrafts;
 
+import com.blackbeard.teach.utils.WeatherLogMsg;
 import com.blackbeard.teach.weather.WeatherTower;
 
 public class Baloon extends Aircraft implements Flyable {
@@ -23,31 +24,32 @@ public class Baloon extends Aircraft implements Flyable {
      */
 
     public void updateConditions() {
+        WeatherLogMsg weatherLogMsg = new WeatherLogMsg();
         if (weatherTower.getWeather(coordinates).equals("SUN"))
         {
-            LogMessage.addString(LogMessage.formatStringBaloon(this, "This is some nice weather we are having. Nice clear blue skies and nice views all over"));
+            LogMessage.addString(LogMessage.formatStringBaloon(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             this.coordinates = new Coordinates(coordinates.getLongitude() + 2, coordinates.getLatitude(), coordinates.getHeight() + 4);
         }
         if (weatherTower.getWeather(coordinates).equals("RAIN"))
         {
-            LogMessage.addString(LogMessage.formatStringBaloon(this, "Captain Teach here! This weather is taking a turn for the worst!"));
+            LogMessage.addString(LogMessage.formatStringBaloon(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 5);
         }
         if (weatherTower.getWeather(coordinates).equals("FOG"))
         {
-            LogMessage.addString(LogMessage.formatStringBaloon(this, "Balloon to WeatherTower, the air looks kinda weird"));
+            LogMessage.addString(LogMessage.formatStringBaloon(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 3);
 
         }
         if (weatherTower.getWeather(coordinates).equals("SNOW"))
         {
-            LogMessage.addString(LogMessage.formatStringBaloon(this, "Balloon going down at a rapid pace I think I'm going to crash"));
+            LogMessage.addString(LogMessage.formatStringBaloon(this, weatherLogMsg.getQuote(weatherTower.getWeather(coordinates))));
             this.coordinates = new Coordinates(coordinates.getLongitude(), coordinates.getLatitude(), coordinates.getHeight() - 15);
         }
 
         if (coordinates.getHeight() <= 0)
         {
-            LogMessage.addString(LogMessage.formatStringBaloon(this, "Balloon has exploded and unregistered from tower" +" Longitude: " +coordinates.getLongitude()+" Latitude: " + coordinates.getLatitude() +"Height: "+ coordinates.getHeight()));
+            LogMessage.addString(LogMessage.formatStringBaloon(this, "Balloon has exploded and unregistered from tower" +" Longitude: " +coordinates.getLongitude()+" Latitude: " + coordinates.getLatitude() +" Height: "+ coordinates.getHeight()));
             weatherTower.unregister(this);
         }
 
